@@ -18,7 +18,6 @@ public:
                 count++;
             }
         }
-        
         return count;
     }
 };
