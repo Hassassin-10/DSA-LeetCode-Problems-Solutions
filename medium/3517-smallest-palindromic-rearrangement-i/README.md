@@ -56,23 +56,33 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-07-28T17:06:11.284Z  
+**Runtime:** 469 ms (beats 17.51%)  
+**Memory:** 21 MB (beats 39.17%)  
+**Submitted:** 2026-07-28T17:06:40.174Z  
 
 ```py
+class Solution:
+    def smallestPalindrome(self, s: str) -> str:
+        freq = [0] * 26
+        
+        for ch in s:
+            freq[ord(ch) - ord('a')] += 1
 
-            left.extend(chr(i + ord('a')) for _ in range(freq[i] // 2))
+        left = []
+        middle = ""
 
-            if freq[i] % 2 == 1:
-                middle = chr(i + ord('a'))
+        for i in range(26):
 
-        left = "".join(left)
-        right = left[::-1]
+            left.extend(chr(i + ord('a')) for _ in range(freq[i] // 2))
 
-        return left + middle + right
-        
+            if freq[i] % 2 == 1:
+                middle = chr(i + ord('a'))
 
+        left = "".join(left)
+        right = left[::-1]
+
+        return left + middle + right
+        
 ```
 
 ---
