@@ -1,11 +1,22 @@
+class Solution:
+    def smallestPalindrome(self, s: str) -> str:
+        freq = [0] * 26
+        
+        for ch in s:
+            freq[ord(ch) - ord('a')] += 1
 
-            left.extend(chr(i + ord('a')) for _ in range(freq[i] // 2))
+        left = []
+        middle = ""
 
-            if freq[i] % 2 == 1:
-                middle = chr(i + ord('a'))
+        for i in range(26):
 
-        left = "".join(left)
-        right = left[::-1]
+            left.extend(chr(i + ord('a')) for _ in range(freq[i] // 2))
 
-        return left + middle + right
-        
+            if freq[i] % 2 == 1:
+                middle = chr(i + ord('a'))
+
+        left = "".join(left)
+        right = left[::-1]
+
+        return left + middle + right
+        
