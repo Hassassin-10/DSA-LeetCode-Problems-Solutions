@@ -69,30 +69,30 @@ Constraints:
 
 **Language:** Python  
 **Runtime:** 0 ms  
-**Memory:** 19.6 MB  
-**Submitted:** 2026-07-29T17:28:56.631Z  
+**Memory:** 19.3 MB  
+**Submitted:** 2026-07-29T17:34:20.147Z  
 
 ```py
-                if freq[char] % 2 != 0:
-            if freq[char] > 0:
-        for char in "abcdefghijklmnopqrstuvwxyz":
-        
-        m = 0
+
+            return ""
+
+        if k > len(perms):
+        perms = sorted(set(permutations(half)))
+
+                mid = ch
+            if freq[ch] % 2:
+            half.extend(ch * (freq[ch] // 2))
+        for ch in sorted(freq):
+
         mid = ""
-        half = {}
+        half = []
+
         freq = Counter(s)
-        
-        import math
-        from collections import Counter
     def smallestPalindrome(self, s: str, k: int) -> str:
 class Solution:
-                    mid += char
-                half[char] = freq[char] // 2
-                m += half[char]
-        
-        def get_ways(f, target_k):
-            ways = 1
-            curr_len = 0
+
+        first = "".join(perms[k - 1])
+        return first + mid + first[::-1]
 
 ```
 
