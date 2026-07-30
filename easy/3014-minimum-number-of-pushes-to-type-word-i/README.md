@@ -61,7 +61,7 @@ Constraints:
 **Language:** Python  
 **Runtime:** 0 ms  
 **Memory:** 19.3 MB  
-**Submitted:** 2026-07-30T17:01:54.465Z  
+**Submitted:** 2026-07-30T17:03:41.862Z  
 
 ```py
 class Solution:
@@ -69,7 +69,7 @@ class Solution:
         cost = 0
         for i in range(len(word)):
             cost += (i/8)+1
-        return cost
+        return int(cost)
 
 ```
 
