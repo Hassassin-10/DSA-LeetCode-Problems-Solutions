@@ -59,17 +59,18 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 19.3 MB (beats 48.74%)  
-**Submitted:** 2026-07-30T17:06:03.809Z  
+**Runtime:** 0 ms  
+**Memory:** 19.3 MB  
+**Submitted:** 2026-07-30T17:04:55.186Z  
 
 ```py
-class Solution:
-    def minimumPushes(self, word: str) -> int:
-        cost = 0
-        for i in range(len(word)):
-            cost += (i//8)+1
-        return cost
+class Solution:
+    def minimumPushes(self, word: str) -> int:
+        cost = 0
+        for i in range(len(word)):
+            cost += (i//8)+1
+        return cost
+
 ```
 
 ---
