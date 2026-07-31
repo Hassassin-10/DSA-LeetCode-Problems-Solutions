@@ -70,23 +70,22 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.2 MB  
-**Submitted:** 2026-07-31T17:18:13.218Z  
+**Runtime:** 102 ms (beats 64.21%)  
+**Memory:** 20 MB (beats 48.16%)  
+**Submitted:** 2026-07-31T17:18:20.676Z  
 
 ```py
-from collections import Counter
+from collections import Counter
 
-class Solution:
-    def minimumPushes(self, word: str) -> int:
-        freq = sorted(Counter(word).values(), reverse=True)
+class Solution:
+    def minimumPushes(self, word: str) -> int:
+        freq = sorted(Counter(word).values(), reverse=True)
 
-        ans = 0
-        for i, f in enumerate(freq):
-            ans += f * (i // 8 + 1)
+        ans = 0
+        for i, f in enumerate(freq):
+            ans += f * (i // 8 + 1)
 
-        return ans
-
+        return ans
 ```
 
 ---
