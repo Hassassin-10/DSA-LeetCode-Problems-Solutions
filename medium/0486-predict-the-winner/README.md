@@ -39,26 +39,25 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-08-01T17:02:24.742Z  
+**Runtime:** 1 ms (beats 65.75%)  
+**Memory:** 20 MB (beats 11.54%)  
+**Submitted:** 2026-08-01T17:02:32.176Z  
 
 ```py
-from functools import lru_cache
-    def predictTheWinner(self, nums: List[int]) -> bool:
-        @lru_cache(None)
-        def dp(i, j):
-            if i == j:
-                return nums[i]
+from functools import lru_cache
+class Solution:
+    def predictTheWinner(self, nums: List[int]) -> bool:
+        @lru_cache(None)
+        def dp(i, j):
+            if i == j:
+                return nums[i]
 
-            pick_left = nums[i] - dp(i + 1, j)
-            pick_right = nums[j] - dp(i, j - 1)
+            pick_left = nums[i] - dp(i + 1, j)
+            pick_right = nums[j] - dp(i, j - 1)
 
-            return max(pick_left, pick_right)
+            return max(pick_left, pick_right)
 
-class Solution:
-        return dp(0, len(nums) - 1) >= 0
-
+        return dp(0, len(nums) - 1) >= 0
 ```
 
 ---
