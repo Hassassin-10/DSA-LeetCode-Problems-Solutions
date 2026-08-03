@@ -51,32 +51,33 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.2 MB  
-**Submitted:** 2026-08-03T16:59:06.041Z  
+**Runtime:** 664 ms (beats 68.51%)  
+**Memory:** 23.8 MB (beats 88.31%)  
+**Submitted:** 2026-08-03T16:59:13.015Z  
 
 ```py
-        n = len(stoneValue)
-        dp = [0] * (n + 1)
+class Solution:
+    def stoneGameIII(self, stoneValue: List[int]) -> str:
+        n = len(stoneValue)
+        dp = [0] * (n + 1)
 
-        for i in range(n - 1, -1, -1):
-            best = float('-inf')
-            curr = 0
+        for i in range(n - 1, -1, -1):
+            best = float('-inf')
+            curr = 0
 
-            for k in range(3):
-                if i + k < n:
-                    curr += stoneValue[i + k]
-                    best = max(best, curr - dp[i + k + 1])
+            for k in range(3):
+                if i + k < n:
+                    curr += stoneValue[i + k]
+                    best = max(best, curr - dp[i + k + 1])
 
-            dp[i] = best
+            dp[i] = best
 
-        if dp[0] > 0:
-            return "Alice"
-        elif dp[0] < 0:
-            return "Bob"
-        else:
-            return "Tie"
-
+        if dp[0] > 0:
+            return "Alice"
+        elif dp[0] < 0:
+            return "Bob"
+        else:
+            return "Tie"
 ```
 
 ---
