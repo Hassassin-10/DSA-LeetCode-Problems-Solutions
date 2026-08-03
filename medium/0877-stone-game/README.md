@@ -43,29 +43,28 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-08-03T16:58:09.511Z  
+**Runtime:** 130 ms (beats 41.05%)  
+**Memory:** 25.5 MB (beats 33.99%)  
+**Submitted:** 2026-08-03T16:58:17.722Z  
 
 ```py
-class Solution:
-    def stoneGame(self, piles: List[int]) -> bool:
-        n = len(piles)
-        dp = [[0] * n for _ in range(n)]
+class Solution:
+    def stoneGame(self, piles: List[int]) -> bool:
+        n = len(piles)
+        dp = [[0] * n for _ in range(n)]
 
-        for i in range(n):
-            dp[i][i] = piles[i]
+        for i in range(n):
+            dp[i][i] = piles[i]
 
-        for length in range(2, n + 1):
-            for i in range(n - length + 1):
-                j = i + length - 1
-                dp[i][j] = max(
-                    piles[i] - dp[i + 1][j],
-                    piles[j] - dp[i][j - 1]
-                )
+        for length in range(2, n + 1):
+            for i in range(n - length + 1):
+                j = i + length - 1
+                dp[i][j] = max(
+                    piles[i] - dp[i + 1][j],
+                    piles[j] - dp[i][j - 1]
+                )
 
-        return dp[0][n - 1] > 0
-
+        return dp[0][n - 1] > 0
 ```
 
 ---
