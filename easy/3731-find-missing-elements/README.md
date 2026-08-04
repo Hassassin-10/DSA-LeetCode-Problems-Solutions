@@ -59,20 +59,19 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-08-04T15:02:03.106Z  
+**Runtime:** 7 ms (beats 24.45%)  
+**Memory:** 19.3 MB (beats 55.74%)  
+**Submitted:** 2026-08-04T15:02:08.650Z  
 
 ```py
-class Solution:
-    def findMissingElements(self, nums: List[int]) -> List[int]:
-        nums.sort()
-        missing = []
-        for i in range(nums[0],nums[-1]+1):
-            if i not in nums:
-                missing.append(i)
-        return missing
-
+class Solution:
+    def findMissingElements(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        missing = []
+        for i in range(nums[0],nums[-1]+1):
+            if i not in nums:
+                missing.append(i)
+        return missing
 ```
 
 ---
