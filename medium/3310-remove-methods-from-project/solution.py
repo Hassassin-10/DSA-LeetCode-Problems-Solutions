@@ -1,21 +1,30 @@
-        # Find all suspicious methods (reachable from k)
-        suspicious = [False] * n
-        q = deque([k])
-        suspicious[k] = True
+from collections import deque
+from typing import List
 
-        while q:
-            u = q.popleft()
-            for v in graph[u]:
-                if not suspicious[v]:
-                    suspicious[v] = True
-                    q.append(v)
+class Solution:
+    def remainingMethods(self, n: int, k: int, invocations: List[List[int]]) -> List[int]:
+        graph = [[] for _ in range(n)]
 
-            graph[u].append(v)
-        for u, v in invocations:
+        for u, v in invocations:
+            graph[u].append(v)
 
-        graph = [[] for _ in range(n)]
-    def remainingMethods(self, n: int, k: int, invocations: List[List[int]]) -> List[int]:
-class Solution:
+        # Find all suspicious methods (reachable from k)
+        suspicious = [False] * n
+        q = deque([k])
+        suspicious[k] = True
 
-from typing import List
-from collections import deque
+        while q:
+            u = q.popleft()
+            for v in graph[u]:
+                if not suspicious[v]:
+                    suspicious[v] = True
+                    q.append(v)
+
+        # If any non-suspicious method invokes a suspicious one,
+        # no methods can be removed.
+        for u, v in invocations:
+            if not suspicious[u] and suspicious[v]:
+                return list(range(n))
+
+        # Return all remaining (non-suspicious) methods.
+        return [i for i in range(n) if not suspicious[i]]
