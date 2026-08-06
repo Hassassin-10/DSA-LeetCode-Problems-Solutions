@@ -41,25 +41,24 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.2 MB  
-**Submitted:** 2026-08-06T16:23:33.099Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 19.2 MB (beats 73.98%)  
+**Submitted:** 2026-08-06T16:23:38.136Z  
 
 ```py
-class Solution:
-    def smallestNumber(self, n: int, t: int) -> int:
-        def digit_product(x):
-            prod = 1
-            while x > 0:
-                prod *= x % 10
-                x //= 10
-            return prod
+class Solution:
+    def smallestNumber(self, n: int, t: int) -> int:
+        def digit_product(x):
+            prod = 1
+            while x > 0:
+                prod *= x % 10
+                x //= 10
+            return prod
 
-        while True:
-            if digit_product(n) % t == 0:
-                return n
-            n += 1
-
+        while True:
+            if digit_product(n) % t == 0:
+                return n
+            n += 1
 ```
 
 ---
