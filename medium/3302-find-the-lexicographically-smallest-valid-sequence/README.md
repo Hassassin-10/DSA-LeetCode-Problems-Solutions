@@ -87,24 +87,27 @@ Constraints:
 
 **Language:** Python  
 **Runtime:** 0 ms  
-**Memory:** 19.5 MB  
-**Submitted:** 2026-08-08T06:16:22.959Z  
+**Memory:** 19.4 MB  
+**Submitted:** 2026-08-08T06:17:12.066Z  
 
 ```py
-                break
-            nxt[j] = p
-            p -= 1
-
-        ans, p, used = [], -1, False
-
-        for j in range(m):
-            for i in range(p + 1, nxt[j + 1]):
-                if word1[i] == word2[j] or not used:
-                    ans.append(i)
-                    used |= word1[i] != word2[j]
-                    p = i
+                if right[j + 1] <= i:
                     break
-            else:
+
+                if word1[i] == word2[j]:
+                    ans.append(i)
+                    p = i
+                    found = True
+                    break
+
+                if not used:
+                    ans.append(i)
+                    p = i
+                    used = True
+                    found = True
+                    break
+
+            if not found:
                 return []
 
         return ans
