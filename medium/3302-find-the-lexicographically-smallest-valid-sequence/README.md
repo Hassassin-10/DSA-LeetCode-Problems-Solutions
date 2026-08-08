@@ -86,32 +86,43 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.5 MB  
-**Submitted:** 2026-08-08T06:17:44.527Z  
+**Runtime:** 426 ms (beats 84.78%)  
+**Memory:** 47 MB (beats 76.09%)  
+**Submitted:** 2026-08-08T06:17:51.512Z  
 
 ```py
-                break
-            if j == m:
-        for i in range(n):
+from typing import List
 
-        j = 0
-        mismatch = True
-        ans = []
-            i -= 1
+class Solution:
+    def validSequence(self, word1: str, word2: str) -> List[int]:
+        n, m = len(word1), len(word2)
+        last = [-1] * m
 
+        i, j = n - 1, m - 1
+        while i >= 0 and j >= 0:
+            if word1[i] == word2[j]:
+                last[j] = i
+                j -= 1
+            i -= 1
 
-            if word1[i] == word2[j]:
-                ans.append(i)
-                j += 1
+        ans = []
+        j = 0
+        mismatch = True
 
-            elif mismatch and (j == m - 1 or i < last[j + 1]):
-                ans.append(i)
-                j += 1
-                mismatch = False
+        for i in range(n):
+            if j == m:
+                break
 
-        return ans if j == m else []
+            if word1[i] == word2[j]:
+                ans.append(i)
+                j += 1
 
+            elif mismatch and (j == m - 1 or i < last[j + 1]):
+                ans.append(i)
+                j += 1
+                mismatch = False
+
+        return ans if j == m else []
 ```
 
 ---
