@@ -87,30 +87,30 @@ Constraints:
 
 **Language:** Python  
 **Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-08-08T06:17:12.066Z  
+**Memory:** 19.5 MB  
+**Submitted:** 2026-08-08T06:17:44.527Z  
 
 ```py
-                if right[j + 1] <= i:
-                    break
+                break
+            if j == m:
+        for i in range(n):
 
-                if word1[i] == word2[j]:
-                    ans.append(i)
-                    p = i
-                    found = True
-                    break
+        j = 0
+        mismatch = True
+        ans = []
+            i -= 1
 
-                if not used:
-                    ans.append(i)
-                    p = i
-                    used = True
-                    found = True
-                    break
 
-            if not found:
-                return []
+            if word1[i] == word2[j]:
+                ans.append(i)
+                j += 1
 
-        return ans
+            elif mismatch and (j == m - 1 or i < last[j + 1]):
+                ans.append(i)
+                j += 1
+                mismatch = False
+
+        return ans if j == m else []
 
 ```
 
