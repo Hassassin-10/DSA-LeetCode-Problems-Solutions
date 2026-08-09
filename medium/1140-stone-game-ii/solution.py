@@ -1,21 +1,20 @@
-            if (i, m) in memo:
-                return memo[(i, m)]
+            # Current player can take X piles.
+            # After that, the opponent gets dp(next_i, next_m).
+            # Therefore current player's final amount is:
+            #
+            # total remaining - opponent's best amount
+            best = 0
 
-            # Can take everything that remains.
-            if i + 2 * m >= n:
-                memo[(i, m)] = suffix[i]
-                return 0
+            for x in range(1, min(2 * m, n - i) + 1):
+                next_i = i + x
+                next_m = max(m, x)
 
-            if i >= n:
-        def dp(i, m):
-        memo = {}
+                best = max(
+                    best,
+                    suffix[i] - dp(next_i, next_m)
+                )
 
-            suffix[i] = suffix[i + 1] + piles[i]
+            memo[(i, m)] = best
+            return best
 
-        for i in range(n - 1, -1, -1):
-        n = len(piles)
-
-        # suffix[i] = sum of piles[i:]
-        suffix = [0] * (n + 1)
-class Solution:
-    def stoneGameII(self, piles: List[int]) -> int:
+        return dp(0, 1)
