@@ -42,25 +42,24 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-08-10T14:13:11.384Z  
+**Runtime:** 577 ms (beats 66.37%)  
+**Memory:** 20 MB (beats 85.15%)  
+**Submitted:** 2026-08-10T14:13:17.331Z  
 
 ```py
-class Solution:
-    def winnerSquareGame(self, n: int) -> bool:
-        dp = [False] * (n + 1)
+class Solution:
+    def winnerSquareGame(self, n: int) -> bool:
+        dp = [False] * (n + 1)
 
-        for i in range(1, n + 1):
-            j = 1
-            while j * j <= i:
-                if not dp[i - j * j]:
-                    dp[i] = True
-                    break
-                j += 1
+        for i in range(1, n + 1):
+            j = 1
+            while j * j <= i:
+                if not dp[i - j * j]:
+                    dp[i] = True
+                    break
+                j += 1
 
-        return dp[n]
-
+        return dp[n]
 ```
 
 ---
