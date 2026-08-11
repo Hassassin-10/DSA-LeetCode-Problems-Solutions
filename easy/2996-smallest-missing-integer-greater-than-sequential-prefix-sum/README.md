@@ -35,26 +35,25 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19 MB  
-**Submitted:** 2026-08-11T05:27:00.198Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 19.2 MB (beats 87.89%)  
+**Submitted:** 2026-08-11T05:27:08.229Z  
 
 ```py
-class Solution:
-    def missingInteger(self, nums: list[int]) -> int:
-        total = nums[0]
+class Solution:
+    def missingInteger(self, nums: list[int]) -> int:
+        total = nums[0]
 
-        for i in range(1, len(nums)):
-            if nums[i] == nums[i - 1] + 1:
-                total += nums[i]
-            else:
-                break
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1] + 1:
+                total += nums[i]
+            else:
+                break
 
-        while total in nums:
-            total += 1
+        while total in nums:
+            total += 1
 
-        return total
-
+        return total
 ```
 
 ---
