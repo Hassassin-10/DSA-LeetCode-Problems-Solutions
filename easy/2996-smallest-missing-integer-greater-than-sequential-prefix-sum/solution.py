@@ -1,14 +1,14 @@
-class Solution:
-    def missingInteger(self, nums: list[int]) -> int:
-        total = nums[0]
+class Solution:
+    def missingInteger(self, nums: list[int]) -> int:
+        total = nums[0]
 
-        for i in range(1, len(nums)):
-            if nums[i] == nums[i - 1] + 1:
-                total += nums[i]
-            else:
-                break
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1] + 1:
+                total += nums[i]
+            else:
+                break
 
-        while total in nums:
-            total += 1
+        while total in nums:
+            total += 1
 
-        return total
+        return total
