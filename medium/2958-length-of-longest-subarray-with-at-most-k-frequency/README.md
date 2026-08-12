@@ -50,28 +50,27 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-08-12T16:35:00.102Z  
+**Runtime:** 237 ms (beats 89.32%)  
+**Memory:** 35.4 MB (beats 38.32%)  
+**Submitted:** 2026-08-12T16:35:05.501Z  
 
 ```py
-class Solution:
-    def maxSubarrayLength(self, nums: List[int], k: int) -> int:
-        freq = {}
-        left = 0
-        ans = 0
+class Solution:
+    def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        freq = {}
+        left = 0
+        ans = 0
 
-        for right in range(len(nums)):
-            freq[nums[right]] = freq.get(nums[right], 0) + 1
+        for right in range(len(nums)):
+            freq[nums[right]] = freq.get(nums[right], 0) + 1
 
-            while freq[nums[right]] > k:
-                freq[nums[left]] -= 1
-                left += 1
+            while freq[nums[right]] > k:
+                freq[nums[left]] -= 1
+                left += 1
 
-            ans = max(ans, right - left + 1)
+            ans = max(ans, right - left + 1)
 
-        return ans
-
+        return ans
 ```
 
 ---
