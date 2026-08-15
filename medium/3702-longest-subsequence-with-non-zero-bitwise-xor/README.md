@@ -43,30 +43,29 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.1 MB  
-**Submitted:** 2026-08-15T09:12:22.732Z  
+**Runtime:** 27 ms (beats 74.19%)  
+**Memory:** 34.3 MB (beats 15.32%)  
+**Submitted:** 2026-08-15T09:12:27.712Z  
 
 ```py
-class Solution:
-    def longestSubsequence(self, nums: list[int]) -> int:
-        xor = 0
+class Solution:
+    def longestSubsequence(self, nums: list[int]) -> int:
+        xor = 0
 
-        for num in nums:
-            xor ^= num
+        for num in nums:
+            xor ^= num
 
-        if xor != 0:
-            return len(nums)
+        if xor != 0:
+            return len(nums)
 
-        # Total XOR is 0.
-        # If there's a non-zero element, remove it.
-        for num in nums:
-            if num != 0:
-                return len(nums) - 1
+        # Total XOR is 0.
+        # If there's a non-zero element, remove it.
+        for num in nums:
+            if num != 0:
+                return len(nums) - 1
 
-        # All elements are zero.
-        return 0
-
+        # All elements are zero.
+        return 0
 ```
 
 ---
