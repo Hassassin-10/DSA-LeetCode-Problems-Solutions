@@ -52,26 +52,25 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-08-16T04:53:44.774Z  
+**Runtime:** 40 ms (beats 96.18%)  
+**Memory:** 30.3 MB (beats 96.95%)  
+**Submitted:** 2026-08-16T04:54:25.250Z  
 
 ```py
-class Solution:
-    def stoneGameIX(self, stones: list[int]) -> bool:
-        cnt = [0, 0, 0]
+class Solution:
+    def stoneGameIX(self, stones: list[int]) -> bool:
+        cnt = [0, 0, 0]
 
-        for x in stones:
-            cnt[x % 3] += 1
+        for x in stones:
+            cnt[x % 3] += 1
 
-        # Stones divisible by 3 don't change the sum modulo 3.
-        # They can effectively be used as extra moves.
-        if cnt[0] % 2 == 0:
-            return cnt[1] > 0 and cnt[2] > 0
+        # Stones divisible by 3 don't change the sum modulo 3.
+        # They can effectively be used as extra moves.
+        if cnt[0] % 2 == 0:
+            return cnt[1] > 0 and cnt[2] > 0
 
-        # Odd number of 0-modulo stones
-        return abs(cnt[1] - cnt[2]) > 2
-
+        # Odd number of 0-modulo stones
+        return abs(cnt[1] - cnt[2]) > 2
 ```
 
 ---
