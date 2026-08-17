@@ -45,31 +45,55 @@ Constraints:
 
 **Language:** Python  
 **Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-08-17T13:10:01.006Z  
+**Memory:** 19.4 MB  
+**Submitted:** 2026-08-17T13:11:47.223Z  
 
 ```py
-                elif left_sum > right_sum:
-                    dp[l][r] = max(dp[l][r], right_sum + dp[k + 1][r])
-                else:
-                    dp[l][r] = max(
-                        dp[l][r],
-                        left_sum + max(dp[l][k], dp[k + 1][r])
-                    )
+from typing import List
 
-                # Also check the split immediately before k.
-                if k > l:
-                    left_sum = range_sum(l, k - 1)
-                    right_sum = total - left_sum
+class Solution:
+    def stoneGameV(self, stoneValue: List[int]) -> int:
+        n = len(stoneValue)
 
-                    # Here left_sum < right_sum.
-                    dp[l][r] = max(
-                        dp[l][r],
-                        left_sum + dp[l][k - 1]
-                    )
+        # Prefix sums
+        prefix = [0] * (n + 1)
+        for i in range(n):
+            prefix[i + 1] = prefix[i] + stoneValue[i]
 
-        return dp[0][n - 1]
+        # dp[l][r] = maximum score obtainable from stoneValue[l:r+1]
+        dp = [[0] * n for _ in range(n)]
 
+        for length in range(2, n + 1):
+            for l in range(n - length + 1):
+                r = l + length - 1
+
+                for k in range(l, r):
+                    left = prefix[k + 1] - prefix[l]
+                    right = prefix[r + 1] - prefix[k + 1]
+
+                    if left < right:
+                        # Bob throws away right
+                        dp[l][r] = max(
+                            dp[l][r],
+                            left + dp[l][k]
+                        )
+
+                    elif left > right:
+                        # Bob throws away left
+                        dp[l][r] = max(
+                            dp[l][r],
+                            right + dp[k + 1][r]
+                        )
+
+                    else:
+                        # Equal: Alice chooses either side
+                        dp[l][r] = max(
+                            dp[l][r],
+                            left + dp[l][k],
+                            right + dp[k + 1][r]
+                        )
+
+        return dp[0][n - 1]
 ```
 
 ---
