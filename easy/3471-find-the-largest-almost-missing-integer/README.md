@@ -74,30 +74,29 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-08-18T12:44:06.306Z  
+**Runtime:** 7 ms (beats 30.74%)  
+**Memory:** 19.2 MB (beats 75.41%)  
+**Submitted:** 2026-08-18T12:44:12.792Z  
 
 ```py
-class Solution:
-    def largestInteger(self, nums: List[int], k: int) -> int:
-        count = {}
+class Solution:
+    def largestInteger(self, nums: List[int], k: int) -> int:
+        count = {}
 
-        # Count how many size-k subarrays contain each number.
-        for i in range(len(nums) - k + 1):
-            seen = set(nums[i:i + k])
+        # Count how many size-k subarrays contain each number.
+        for i in range(len(nums) - k + 1):
+            seen = set(nums[i:i + k])
 
-            for x in seen:
-                count[x] = count.get(x, 0) + 1
+            for x in seen:
+                count[x] = count.get(x, 0) + 1
 
-        # Largest number that appears in exactly one subarray.
-        ans = -1
-        for x, freq in count.items():
-            if freq == 1:
-                ans = max(ans, x)
+        # Largest number that appears in exactly one subarray.
+        ans = -1
+        for x, freq in count.items():
+            if freq == 1:
+                ans = max(ans, x)
 
-        return ans
-
+        return ans
 ```
 
 ---
