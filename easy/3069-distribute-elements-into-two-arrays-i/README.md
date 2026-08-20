@@ -49,24 +49,23 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-08-20T14:59:52.980Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 19.3 MB (beats 61.54%)  
+**Submitted:** 2026-08-20T15:00:32.179Z  
 
 ```py
-class Solution:
-    def resultArray(self, nums: List[int]) -> List[int]:
-        arr1 = [nums[0]]
-        arr2 = [nums[1]]
+class Solution:
+    def resultArray(self, nums: List[int]) -> List[int]:
+        arr1 = [nums[0]]
+        arr2 = [nums[1]]
 
-        for i in range(2, len(nums)):
-            if arr1[-1] > arr2[-1]:
-                arr1.append(nums[i])
-            else:
-                arr2.append(nums[i])
+        for i in range(2, len(nums)):
+            if arr1[-1] > arr2[-1]:
+                arr1.append(nums[i])
+            else:
+                arr2.append(nums[i])
 
-        return arr1 + arr2
-
+        return arr1 + arr2
 ```
 
 ---
