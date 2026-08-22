@@ -9,4 +9,7 @@ class Solution:
             sum += digit
             product *= digit
             n //= 10
-        return org % (sum + product) == 0
+        if org % (sum + product) == 0:
+            print("True")
+        else:
+            print("False")
