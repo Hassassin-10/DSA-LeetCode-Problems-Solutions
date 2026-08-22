@@ -52,8 +52,8 @@ Constraints:
 
 **Language:** Python  
 **Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-08-22T08:35:58.396Z  
+**Memory:** 19.4 MB  
+**Submitted:** 2026-08-22T08:37:08.495Z  
 
 ```py
 class Solution:
@@ -67,7 +67,10 @@ class Solution:
             sum += digit
             product *= digit
             n //= 10
-        return org % (sum + product) == 0
+        if org % (sum + product) == 0:
+            print("True")
+        else:
+            print("False")
 
 ```
 
