@@ -51,27 +51,22 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-08-22T08:37:08.495Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 19.4 MB (beats 5.35%)  
+**Submitted:** 2026-08-22T08:37:37.230Z  
 
 ```py
-class Solution:
-    def checkDivisibility(self, n: int) -> bool:
-        n = 99
-        org = n
-        sum = 0
-        product = 1
-        while(n>0):
-            digit = n%10
-            sum += digit
-            product *= digit
-            n //= 10
-        if org % (sum + product) == 0:
-            print("True")
-        else:
-            print("False")
-
+class Solution:
+    def checkDivisibility(self, n: int) -> bool:
+        org = n
+        sum = 0
+        product = 1
+        while(n>0):
+            digit = n%10
+            sum += digit
+            product *= digit
+            n //= 10
+        return org % (sum + product) == 0
 ```
 
 ---
