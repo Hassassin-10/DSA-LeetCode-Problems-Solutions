@@ -64,30 +64,29 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 47 ms  
-**Memory:** 19.1 MB  
-**Submitted:** 2026-08-24T16:07:32.620Z  
+**Runtime:** 658 ms (beats 80.47%)  
+**Memory:** 33 MB (beats 63.91%)  
+**Submitted:** 2026-08-24T16:07:38.759Z  
 
 ```py
-class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
-        n = len(stones)
+class Solution:
+    def stoneGameVIII(self, stones: List[int]) -> int:
+        n = len(stones)
 
-        # prefix[i] = sum of stones[0:i]
-        prefix = [0] * (n + 1)
-        for i in range(n):
-            prefix[i + 1] = prefix[i] + stones[i]
+        # prefix[i] = sum of stones[0:i]
+        prefix = [0] * (n + 1)
+        for i in range(n):
+            prefix[i + 1] = prefix[i] + stones[i]
 
-        # If Alice takes all n stones immediately.
-        best = prefix[n]
+        # If Alice takes all n stones immediately.
+        best = prefix[n]
 
-        # Consider taking the first i stones, i >= 2.
-        # The opponent then plays optimally on the remaining game.
-        for i in range(n - 1, 1, -1):
-            best = max(best, prefix[i] - best)
+        # Consider taking the first i stones, i >= 2.
+        # The opponent then plays optimally on the remaining game.
+        for i in range(n - 1, 1, -1):
+            best = max(best, prefix[i] - best)
 
-        return best
-
+        return best
 ```
 
 ---
