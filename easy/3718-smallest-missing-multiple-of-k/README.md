@@ -44,21 +44,20 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.2 MB  
-**Submitted:** 2026-08-25T08:55:08.188Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 19 MB (beats 99.26%)  
+**Submitted:** 2026-08-25T08:55:16.663Z  
 
 ```py
-class Solution:
-    def missingMultiple(self, nums: List[int], k: int) -> int:
-        nums_set = set(nums)
-        
-        multiple = k
-        while multiple in nums_set:
-            multiple += k
-        
-        return multiple
-
+class Solution:
+    def missingMultiple(self, nums: List[int], k: int) -> int:
+        nums_set = set(nums)
+        
+        multiple = k
+        while multiple in nums_set:
+            multiple += k
+        
+        return multiple
 ```
 
 ---
