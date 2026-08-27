@@ -66,33 +66,58 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-08-27T07:23:25.493Z  
+**Runtime:** 27 ms (beats 23.68%)  
+**Memory:** 19.5 MB (beats 42.11%)  
+**Submitted:** 2026-08-27T07:24:30.103Z  
 
 ```py
-        for ch in s:
-            cnt[ord(ch) - ord('a')] += 1
-        cnt = [0] * 26
-        # Simpler O(26 * n) approach:
+class Solution:
+    def lexGreaterPermutation(self, s: str, target: str) -> str:
+        n = len(s)
 
-            pass
-            # available characters for this suffix incrementally.
-            # Instead of rebuilding cnt repeatedly, calculate the
-            # Restore the characters used by target[0:i].
-        for i in range(n - 1, -1, -1):
-        # where we can make the first character strictly larger.
-        # Try to construct a permutation that is > target.
-        # We scan from right to left, looking for the position
-        n = len(s)
+        # Frequency of characters in s
+        cnt = [0] * 26
+        for ch in s:
+            cnt[ord(ch) - ord('a')] += 1
 
+        # Try to make the answer greater at position i.
+        # We go from right to left so that the first difference
+        # happens as late as possible.
+        for i in range(n - 1, -1, -1):
+            # Recreate the available characters after using target[:i]
+            rem = cnt[:]
 
-        for ch in s:
-            cnt[ord(ch) - ord('a')] += 1
-        cnt = [0] * 26
-    def lexGreaterPermutation(self, s: str, target: str) -> str:
-class Solution:
+            possible = True
 
+            for j in range(i):
+                x = ord(target[j]) - ord('a')
+
+                if rem[x] == 0:
+                    possible = False
+                    break
+
+                rem[x] -= 1
+
+            if not possible:
+                continue
+
+            # Find the smallest character > target[i]
+            x = ord(target[i]) - ord('a')
+
+            for c in range(x + 1, 26):
+                if rem[c] > 0:
+                    rem[c] -= 1
+
+                    # target[:i] + chosen larger character
+                    ans = target[:i] + chr(ord('a') + c)
+
+                    # Smallest possible suffix
+                    for k in range(26):
+                        ans += chr(ord('a') + k) * rem[k]
+
+                    return ans
+
+        return ""
 ```
 
 ---
