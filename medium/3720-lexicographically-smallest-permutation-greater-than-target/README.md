@@ -68,30 +68,30 @@ Constraints:
 **Language:** Python  
 **Runtime:** 0 ms  
 **Memory:** 19.3 MB  
-**Submitted:** 2026-08-27T07:24:23.434Z  
+**Submitted:** 2026-08-27T07:23:48.996Z  
 
 ```py
-                x = ord(target[j]) - ord('a')
+            if not possible:
+                continue
 
-            for j in range(i):
+            # At position i, choose the smallest character
+            # strictly greater than target[i].
+            t = ord(target[i]) - ord('a')
 
-            possible = True
+            for c in range(t + 1, 26):
+                if remaining[c] > 0:
+                    remaining[c] -= 1
 
-            rem = cnt[:]
-            # Recreate the available characters after using target[:i]
-        for i in range(n - 1, -1, -1):
-        # happens as late as possible.
-        # Try to make the answer greater at position i.
-        # We go from right to left so that the first difference
+                    ans = target[:i] + chr(c)
 
-            cnt[ord(ch) - ord('a')] += 1
-        for ch in s:
-        cnt = [0] * 26
-        # Frequency of characters in s
+                    # Smallest possible suffix.
+                    for x in range(26):
+                        ans += chr(x + ord('a')) * remaining[x]
 
-        n = len(s)
-    def lexGreaterPermutation(self, s: str, target: str) -> str:
-class Solution:
+                    return ans
+
+        return ""
+        
 
 ```
 
