@@ -67,29 +67,29 @@ Constraints:
 
 **Language:** Python  
 **Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-08-27T07:23:14.878Z  
+**Memory:** 19.4 MB  
+**Submitted:** 2026-08-27T07:23:25.493Z  
 
 ```py
-                remaining[x] -= 1
-                    break
-                    possible = False
-                if remaining[x] == 0:
-                x = ord(target[j]) - ord('a')
-            for j in range(i):
-            possible = True
-
-            remaining = cnt[:]
-            # Characters needed by target[:i].
-        for i in range(n - 1, -1, -1):
-        # Try the rightmost possible position to make the answer larger.
-
-            cnt[ord(ch) - ord('a')] += 1
         for ch in s:
+            cnt[ord(ch) - ord('a')] += 1
         cnt = [0] * 26
-        # Count characters in s.
+        # Simpler O(26 * n) approach:
 
+            pass
+            # available characters for this suffix incrementally.
+            # Instead of rebuilding cnt repeatedly, calculate the
+            # Restore the characters used by target[0:i].
+        for i in range(n - 1, -1, -1):
+        # where we can make the first character strictly larger.
+        # Try to construct a permutation that is > target.
+        # We scan from right to left, looking for the position
         n = len(s)
+
+
+        for ch in s:
+            cnt[ord(ch) - ord('a')] += 1
+        cnt = [0] * 26
     def lexGreaterPermutation(self, s: str, target: str) -> str:
 class Solution:
 
