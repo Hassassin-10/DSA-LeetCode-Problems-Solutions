@@ -67,30 +67,31 @@ Constraints:
 
 **Language:** Python  
 **Runtime:** 0 ms  
-**Memory:** 19.2 MB  
-**Submitted:** 2026-08-27T07:23:36.734Z  
+**Memory:** 19.3 MB  
+**Submitted:** 2026-08-27T07:24:23.434Z  
 
 ```py
-                    # The prefix target[:i] has already consumed
-                    # those characters, so construct the smallest suffix.
+                x = ord(target[j]) - ord('a')
 
-                    cnt[c] -= 1
+            for j in range(i):
 
-                    prefix = target[:i] + chr(c)
-                if cnt[c] > 0:
-            for c in range(t + 1, 26):
-                    suffix = []
-                    for x in range(26):
-                        suffix.append(chr(x + ord('a')) * cnt[x])
+            possible = True
 
-                    return prefix + ''.join(suffix)
+            rem = cnt[:]
+            # Recreate the available characters after using target[:i]
+        for i in range(n - 1, -1, -1):
+        # happens as late as possible.
+        # Try to make the answer greater at position i.
+        # We go from right to left so that the first difference
 
-            # Consume target[i] so we can continue matching it.
-            if cnt[t] == 0:
-                break
-            cnt[t] -= 1
+            cnt[ord(ch) - ord('a')] += 1
+        for ch in s:
+        cnt = [0] * 26
+        # Frequency of characters in s
 
-        return ""
+        n = len(s)
+    def lexGreaterPermutation(self, s: str, target: str) -> str:
+class Solution:
 
 ```
 
