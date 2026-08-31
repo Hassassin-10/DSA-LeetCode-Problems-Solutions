@@ -56,31 +56,48 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-08-31T09:35:39.635Z  
+**Runtime:** 82 ms (beats 55.16%)  
+**Memory:** 62.9 MB (beats 77.08%)  
+**Submitted:** 2026-08-31T09:35:45.691Z  
 
 ```py
-            if is_max or is_min:
-                if first == -1:
-                    first = pos
-                else:
-                    min_dist = min(min_dist, pos - last)
+class Solution:
+    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
+        prev = head
+        curr = head.next
+        pos = 1
 
-                last = pos
+        first = -1
+        last = -1
+        min_dist = float('inf')
 
-            prev = curr
-            curr = next_node
+        while curr.next:
+            next_node = curr.next
+            pos += 1
 
-        # Fewer than two critical points
-        if first == last:
-            return [-1, -1]
+            # Check if curr is a local maximum or minimum
+            is_max = curr.val > prev.val and curr.val > next_node.val
+            is_min = curr.val < prev.val and curr.val < next_node.val
 
-        # Distance between first and last critical points
-        max_dist = last - first
+            if is_max or is_min:
+                if first == -1:
+                    first = pos
+                else:
+                    min_dist = min(min_dist, pos - last)
 
-        return [min_dist, max_dist]
+                last = pos
 
+            prev = curr
+            curr = next_node
+
+        # Fewer than two critical points
+        if first == last:
+            return [-1, -1]
+
+        # Distance between first and last critical points
+        max_dist = last - first
+
+        return [min_dist, max_dist]
 
 ```
 
