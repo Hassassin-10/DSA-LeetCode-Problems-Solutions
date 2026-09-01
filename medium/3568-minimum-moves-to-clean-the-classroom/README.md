@@ -91,9 +91,9 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 9178 ms (beats 8.77%)  
-**Memory:** 47.3 MB (beats 80.70%)  
-**Submitted:** 2026-09-01T16:01:41.671Z  
+**Runtime:** 0 ms  
+**Memory:** 19.8 MB  
+**Submitted:** 2026-09-01T16:02:36.633Z  
 
 ```py
 from typing import List
