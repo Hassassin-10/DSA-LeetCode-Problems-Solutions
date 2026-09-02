@@ -61,15 +61,14 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-09-02T14:14:52.889Z  
+**Runtime:** 1 ms (beats 19.44%)  
+**Memory:** 19.3 MB (beats 47.47%)  
+**Submitted:** 2026-09-02T14:15:02.987Z  
 
 ```py
-class Solution:
-    def uniformArray(self, nums1: list[int]) -> bool:
-        return True
-
+class Solution:
+    def uniformArray(self, nums1: list[int]) -> bool:
+        return True
 
 ```
 
