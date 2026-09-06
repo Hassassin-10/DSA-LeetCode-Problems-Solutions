@@ -42,26 +42,25 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.1 MB  
-**Submitted:** 2026-09-06T16:56:12.693Z  
+**Runtime:** 232 ms (beats 81.37%)  
+**Memory:** 19.5 MB (beats 91.77%)  
+**Submitted:** 2026-09-06T16:56:17.997Z  
 
 ```py
-class Solution:
-    def numDistinct(self, s: str, t: str) -> int:
-        m, n = len(s), len(t)
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
 
-        # dp[j] = number of ways to form t[:j]
-        dp = [0] * (n + 1)
-        dp[0] = 1  # Empty string can always be formed
+        # dp[j] = number of ways to form t[:j]
+        dp = [0] * (n + 1)
+        dp[0] = 1  # Empty string can always be formed
 
-        for ch in s:
-            for j in range(n, 0, -1):
-                if ch == t[j - 1]:
-                    dp[j] += dp[j - 1]
+        for ch in s:
+            for j in range(n, 0, -1):
+                if ch == t[j - 1]:
+                    dp[j] += dp[j - 1]
 
-        return dp[n]
-
+        return dp[n]
 
 ```
 
