@@ -43,30 +43,40 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 31 ms  
-**Memory:** 19.2 MB  
-**Submitted:** 2026-09-10T12:54:15.211Z  
+**Runtime:** 44 ms (beats 90.50%)  
+**Memory:** 19.7 MB (beats 10.24%)  
+**Submitted:** 2026-09-10T12:54:21.570Z  
 
 ```py
-            nonlocal ans
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def averageOfSubtree(self, root):
+        ans = 0
 
-            if not node:
-                return 0, 0
+        def dfs(node):
+            nonlocal ans
 
-            left_sum, left_count = dfs(node.left)
-            right_sum, right_count = dfs(node.right)
+            if not node:
+                return 0, 0
 
-            total_sum = left_sum + right_sum + node.val
-            total_count = left_count + right_count + 1
+            left_sum, left_count = dfs(node.left)
+            right_sum, right_count = dfs(node.right)
 
-            if total_sum // total_count == node.val:
-                ans += 1
+            total_sum = left_sum + right_sum + node.val
+            total_count = left_count + right_count + 1
 
-            return total_sum, total_count
+            if total_sum // total_count == node.val:
+                ans += 1
 
-        dfs(root)
-        return ans
+            return total_sum, total_count
 
+        dfs(root)
+        return ans
 
 ```
 
