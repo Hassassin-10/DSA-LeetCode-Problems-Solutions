@@ -49,22 +49,21 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.3 MB  
-**Submitted:** 2026-09-10T12:52:48.162Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 19.4 MB (beats 10.73%)  
+**Submitted:** 2026-09-10T12:52:53.038Z  
 
 ```py
-class Solution:
-    def countCommas(self, n: int) -> int:
-        ans = 0
-        p = 1000
+class Solution:
+    def countCommas(self, n: int) -> int:
+        ans = 0
+        p = 1000
 
-        while p <= n:
-            ans += n - p + 1
-            p *= 1000
+        while p <= n:
+            ans += n - p + 1
+            p *= 1000
 
-        return ans
-
+        return ans
 
 ```
 
