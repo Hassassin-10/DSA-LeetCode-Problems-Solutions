@@ -48,31 +48,38 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.4 MB  
-**Submitted:** 2026-09-13T06:30:12.970Z  
+**Runtime:** 243 ms (beats 60.84%)  
+**Memory:** 19.7 MB (beats 50.00%)  
+**Submitted:** 2026-09-13T06:30:18.552Z  
 
 ```py
-        ones2 = []
+from typing import List
+from collections import Counter
 
-        for r in range(n):
-            for c in range(n):
-                if img1[r][c] == 1:
-                    ones1.append((r, c))
-                if img2[r][c] == 1:
-                    ones2.append((r, c))
+class Solution:
+    def largestOverlap(self, img1: List[List[int]], img2: List[List[int]]) -> int:
+        n = len(img1)
 
-        shifts = Counter()
+        ones1 = []
+        ones2 = []
 
-        # If img1's (r1, c1) is moved to img2's (r2, c2),
-        # the required translation is (r2-r1, c2-c1).
-        for r1, c1 in ones1:
-            for r2, c2 in ones2:
-                shift = (r2 - r1, c2 - c1)
-                shifts[shift] += 1
+        for r in range(n):
+            for c in range(n):
+                if img1[r][c] == 1:
+                    ones1.append((r, c))
+                if img2[r][c] == 1:
+                    ones2.append((r, c))
 
-        return max(shifts.values(), default=0)
+        shifts = Counter()
 
+        # If img1's (r1, c1) is moved to img2's (r2, c2),
+        # the required translation is (r2-r1, c2-c1).
+        for r1, c1 in ones1:
+            for r2, c2 in ones2:
+                shift = (r2 - r1, c2 - c1)
+                shifts[shift] += 1
+
+        return max(shifts.values(), default=0)
 
 ```
 
