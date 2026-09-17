@@ -6,18 +6,18 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Solved | 111 |
+| Total Solved | 112 |
 | Easy | 32 |
-| Medium | 52 |
+| Medium | 53 |
 | Hard | 27 |
-| Current Streak | 2 days |
-| Last Synced | 9/16/2026 |
+| Current Streak | 3 days |
+| Last Synced | 9/17/2026 |
 
 ## Languages
 
 | Language | Solutions |
 |----------|-----------|
-| Python | 111 |
+| Python | 112 |
 
 ---
-*Last updated: 2026-09-16T15:31:43.511Z*
+*Last updated: 2026-09-17T13:58:49.205Z*
