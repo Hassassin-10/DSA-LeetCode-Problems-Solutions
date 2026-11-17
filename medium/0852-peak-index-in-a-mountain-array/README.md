@@ -44,13 +44,13 @@ Python3
 
 **Language:** Python  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 31.3 MB (beats 43.27%)  
-**Submitted:** 2026-11-17T11:04:57.892Z  
+**Memory:** 31.4 MB (beats 20.22%)  
+**Submitted:** 2026-11-17T11:06:50.892Z  
 
 ```py
 class Solution:
     def peakIndexInMountainArray(self, arr: list[int]) -> int:
-        start , end = 0,len(arr)-2
+        start , end = 0,len(arr)-1
         while start < end:
             mid = (start+end)//2
             if(arr[mid] > arr[mid+1]):
